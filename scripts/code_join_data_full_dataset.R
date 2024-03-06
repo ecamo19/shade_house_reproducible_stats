@@ -51,9 +51,6 @@ raw_data_initheight <-
 data_biomass_cleaned <-
 	raw_data_biomass %>%
 
-        # Delete Harvested at the beginning treatment
-        #filter(!treatment %in% 'Harvestatthebegging') %>%
-
         # Calculate biomass related variables
         mutate(total_biomass = root_dry_weight + stem_dry_weight +
                                whole_leaf_dry_weight,
@@ -99,10 +96,6 @@ data_ecophys_cleaned <-
 ## Leaf traits data -----------------------------------------------------------
 data_leaf_traits_cleaned <-
 
-	raw_data_traits %>%
-
-    	# Delete Harvested at the beginning treatment
-    	#filter(!treatment %in% 'Harvestatthebeginning') %>%
     	dplyr::select(-c()) %>%
 
         # Convert traits to the right units
@@ -122,8 +115,6 @@ data_leaf_traits_cleaned <-
 data_isotopes_cleaned <-
     raw_data_isotopes %>%
 
-	# Delete Harvested at the beginning treatment
-	#filter(!treatment %in% 'Harvestatthebeginning') %>%
     dplyr::select(-family) %>%
 
     # Convert character columns to factor
@@ -140,12 +131,7 @@ data_initheight_cleaned <-
         # Rename column
         rename(init_height = x20150831) %>%
 
-        #Delete Harvested at the beginning treatment
-        #filter(!treatment %in% 'Harvestatthebegging') %>%
         dplyr::select(-family) %>%
-
-        # Delete Harvested at the beginning treatment
-        filter(!treatment %in% 'Harvestatthebegging') %>%
 
         # Convert character columns to factor
         mutate(across(where(is.character), as.factor))
@@ -213,7 +199,7 @@ data_complete <-
 
 # Data set use for fitting the models -----------------------------------------
 
-#data_for_models <-
+data_for_models <-
     data_complete %>%
 
     # Calculate nitrogen use efficiency column
