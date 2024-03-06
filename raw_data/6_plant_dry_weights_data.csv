@@ -1,8 +1,4 @@
 id,spcode,treatment,root_dry_weight,stem_dry_weight,whole_leaf_dry_weight
-1,ec,Harvestatthebegging,0.235,0.16,0.201
-2,ec,Harvestatthebegging,0.291,0.214,0.268
-3,ec,Harvestatthebegging,0.351,0.138,0.3
-4,ec,Harvestatthebegging,0.165,0.228,0.302
 5,ec,ambientrain,1.661,0.923,1.331
 6,ec,ambientrain,2.993,1.643,1.648
 7,ec,ambientrain,3.247,0.992,1.559
@@ -19,10 +15,6 @@ id,spcode,treatment,root_dry_weight,stem_dry_weight,whole_leaf_dry_weight
 18,ec,ambientrain_nutrients,3.003,1.116,2.099
 19,ec,ambientrain_nutrients,7.823,2.467,2.586
 20,ec,ambientrain_nutrients,5.344,2.418,3.407
-21,hc,Harvestatthebegging,0.307,0.304,0.441
-22,hc,Harvestatthebegging,0.661,0.893,1.2
-23,hc,Harvestatthebegging,0.803,0.893,1.515
-24,hc,Harvestatthebegging,0.756,0.968,1.444
 25,hc,ambientrain,4.625,2.5,2.807
 26,hc,ambientrain,4.595,2.6,2.705
 27,hc,ambientrain,3.076,2.732,2.099
@@ -39,10 +31,6 @@ id,spcode,treatment,root_dry_weight,stem_dry_weight,whole_leaf_dry_weight
 38,hc,ambientrain_nutrients,8.414,3.707,3.294
 39,hc,ambientrain_nutrients,3.08,2.713,2.224
 40,hc,ambientrain_nutrients,4.08,2.803,2.704
-41,sg,Harvestatthebegging,0.329,0.169,0.532
-42,sg,Harvestatthebegging,0.377,0.258,0.822
-43,sg,Harvestatthebegging,0.708,0.262,0.784
-44,sg,Harvestatthebegging,0.649,0.315,0.867
 45,sg,ambientrain,2.302,0.709,2.264
 46,sg,ambientrain,1.906,0.467,2.76
 47,sg,ambientrain,0.671,0.303,0.751
@@ -59,9 +47,6 @@ id,spcode,treatment,root_dry_weight,stem_dry_weight,whole_leaf_dry_weight
 58,sg,ambientrain_nutrients,2.255,0.62,3.447
 59,sg,ambientrain_nutrients,3.116,0.816,3.664
 60,sg,ambientrain_nutrients,2.49,0.913,3.276
-61,sm,Harvestatthebegging,0.821,0.564,1.416
-62,sm,Harvestatthebegging,0.47,0.467,0.768
-63,sm,Harvestatthebegging,0.501,0.6,1.135
 65,sm,ambientrain,2.883,1.722,2.147
 66,sm,ambientrain,2.628,2.165,2.356
 67,sm,ambientrain,2.789,2.013,2.956
@@ -78,9 +63,6 @@ id,spcode,treatment,root_dry_weight,stem_dry_weight,whole_leaf_dry_weight
 78,sm,ambientrain_nutrients,3.722,2.775,3.621
 79,sm,ambientrain_nutrients,1.844,1.259,2.342
 80,sm,ambientrain_nutrients,4.697,2.422,3.401
-81,pq,Harvestatthebegging,0.161,0.107,0.162
-82,pq,Harvestatthebegging,0.333,0.14,0.194
-83,pq,Harvestatthebegging,0.432,0.246,0.332
 85,pq,ambientrain,1.938,0.649,0.795
 86,pq,ambientrain,4.191,1.462,1.582
 87,pq,ambientrain,2.493,1.133,1.333
@@ -97,10 +79,6 @@ id,spcode,treatment,root_dry_weight,stem_dry_weight,whole_leaf_dry_weight
 98,pq,ambientrain_nutrients,1.223,0.535,1.125
 99,pq,ambientrain_nutrients,2.405,0.978,1.518
 100,pq,ambientrain_nutrients,2.879,1.345,1.537
-101,gs,Harvestatthebegging,2.289,0.291,0.715
-102,gs,Harvestatthebegging,1.329,0.564,0.734
-103,gs,Harvestatthebegging,0.702,0.445,0.607
-104,gs,Harvestatthebegging,1.672,0.521,0.667
 105,gs,ambientrain,8.734,2.274,2.713
 106,gs,ambientrain,4.93,1.716,1.798
 107,gs,ambientrain,5.711,2.993,2.407
@@ -117,10 +95,6 @@ id,spcode,treatment,root_dry_weight,stem_dry_weight,whole_leaf_dry_weight
 118,gs,ambientrain_nutrients,16.856,2.554,2.865
 119,gs,ambientrain_nutrients,10.231,3.229,3.551
 120,gs,ambientrain_nutrients,9.398,5.096,2.881
-121,dr,Harvestatthebegging,0.136,0.09,0.224
-122,dr,Harvestatthebegging,0.087,0.031,0.119
-123,dr,Harvestatthebegging,0.13,0.092,0.214
-124,dr,Harvestatthebegging,0.123,0.081,0.258
 126,dr,ambientrain,2.758,1.492,4.08
 127,dr,ambientrain,4.268,2.396,3.57
 128,dr,ambientrain,2.587,1.528,3.769
@@ -136,10 +110,6 @@ id,spcode,treatment,root_dry_weight,stem_dry_weight,whole_leaf_dry_weight
 138,dr,ambientrain_nutrients,7.183,2.546,3.428
 139,dr,ambientrain_nutrients,3.301,1.942,5.049
 140,dr,ambientrain_nutrients,6.725,3.036,4.265
-141,to,Harvestatthebegging,0.024,0.012,0.04
-142,to,Harvestatthebegging,0.264,0.048,0.123
-143,to,Harvestatthebegging,0.057,0.036,0.043
-144,to,Harvestatthebegging,0.235,0.045,0.17
 145,to,ambientrain,2.197,0.126,0.664
 146,to,ambientrain,2.487,0.115,0.655
 147,to,ambientrain,1.454,0.123,0.576

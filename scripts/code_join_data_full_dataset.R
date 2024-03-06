@@ -161,7 +161,7 @@ data_complete <-
         inner_join(data_ecophys_cleaned, by = c("id", "spcode", "treatment")) %>%
 
         # Add leaf traits
-	    inner_join(data_leaftraits_cleaned, by = c("id", "spcode", "treatment")) %>%
+	    inner_join(data_leaf_traits_cleaned, by = c("id", "spcode", "treatment")) %>%
 
         #Add isotope data
         inner_join(data_isotopes_cleaned, by = c("id", "spcode", "treatment")) %>%
@@ -241,7 +241,7 @@ data_complete <-
 # Remove all unused data ------------------------------------------------------
 items <- c("data_biomass_cleaned", "data_ecophys_cleaned",
             "data_initheight_cleaned", "data_isotopes_cleaned",
-            "data_leaftraits_cleaned", "data_rgr_agr_cleaned",
+            "data_leaf_traits_cleaned", "data_rgr_agr_cleaned",
             "raw_data_biomass", "raw_data_ecophys", "raw_data_initheight",
            "raw_data_isotopes", "raw_data_traits")
 
