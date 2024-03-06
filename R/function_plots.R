@@ -32,7 +32,7 @@ boxplot_plot_pmap <-  function(x, y, fill = NULL, data) {
     yvar <- rlang::enquo(y)
     fill <- rlang::enquo(fill)
 
-    ggplot2::ggplot(data, aes(fill = !!fill, x = !!xvar, y = !!yvar )) +
+    ggplot2::ggplot(data, ggplot2::aes(fill = !!fill, x = !!xvar, y = !!yvar )) +
         ggplot2::geom_boxplot() +
         ggplot2::scale_fill_manual(values = c("#F0E442","#009E73",
                                               "#56B4E9","#0072B2")) +
