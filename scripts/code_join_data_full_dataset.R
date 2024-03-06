@@ -214,7 +214,7 @@ data_for_models <-
                   rmf, smf, lmf,
 
                   # Traits
-                  amax, gs, wue, d13c, pnue, Narea_g_m2) %>%
+                  amax, gs, wue, d13c, pnue, Narea_g_m2, sla) %>%
 
     # add id to rownames for keep track of the rows
     column_to_rownames("id") %>%
