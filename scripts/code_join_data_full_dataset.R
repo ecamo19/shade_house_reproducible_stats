@@ -96,16 +96,13 @@ data_ecophys_cleaned <-
 ## Leaf traits data -----------------------------------------------------------
 data_leaf_traits_cleaned <-
 
-    	dplyr::select(-c()) %>%
+        raw_data_traits %>%
 
         # Convert traits to the right units
         # Transform sla and la to cm2
         mutate(sla_cm2_g = sla*10000) %>%
         mutate(la_m2 = la) %>%
 
-        # Remove traits not used in the analysis
-        dplyr::select(-c(family, leaf_fresh_weight, leaf_density, lt, lma, sla,
-                         ldmc, la))  %>%
 
         # Convert character columns to factor
         mutate(across(where(is.character), as.factor))
@@ -114,8 +111,6 @@ data_leaf_traits_cleaned <-
 
 data_isotopes_cleaned <-
     raw_data_isotopes %>%
-
-    dplyr::select(-family) %>%
 
     # Convert character columns to factor
     mutate(across(where(is.character), as.factor))
@@ -166,7 +161,7 @@ data_complete <-
     data_complete %>%
 
         # Create Nfixer category
-        mutate(nfixer = factor(ifelse(spcode == "ec" |
+        dplyr::mutate(nfixer = factor(ifelse(spcode == "ec" |
                                spcode == "dr" |
                                spcode == "gs" ,"fixer", "nonfixer")),
 
@@ -188,10 +183,12 @@ data_complete <-
                 Nmass_mg_g = N_mg/leaf_dry_weight,
 
                 # Rename the factor levels
-               treatment = factor(recode(data_complete$treatment,ambientrain  = "no_additions",
+               treatment = factor(dplyr::recode(data_complete$treatment,
+                                        ambientrain  = "no_additions",
                                         ambientrain_water_nutrients = "plus_water_nutrients",
                                         ambientrain_nutrients = "plus_nutrients",
-                                        ambientrain_water      = "plus_water"))) %>%
+                                        ambientrain_water      = "plus_water"
+                                        ))) %>%
 
         # Order data set columns
         dplyr::select(id, spcode, nfixer, treatment, init_height, everything())
@@ -217,7 +214,7 @@ data_for_models <-
                   rmf, smf, lmf,
 
                   # Traits
-                  amax, gs, wue, d13c, d15n, pnue, Narea_g_m2) %>%
+                  amax, gs, wue, d13c, pnue, Narea_g_m2) %>%
 
     # add id to rownames for keep track of the rows
     column_to_rownames("id") %>%
@@ -225,7 +222,7 @@ data_for_models <-
 
 
 # Remove all unused data ------------------------------------------------------
-items <- c("data_biomass_cleaned", "data_ecophys_cleaned",
+items <- c("data_biomass_cleaned", "data_ecophys_cleaned", "data_complete",
             "data_initheight_cleaned", "data_isotopes_cleaned",
             "data_leaf_traits_cleaned", "data_rgr_agr_cleaned",
             "raw_data_biomass", "raw_data_ecophys", "raw_data_initheight",
