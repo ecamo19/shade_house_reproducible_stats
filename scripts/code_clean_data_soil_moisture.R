@@ -76,6 +76,27 @@ data_soil_moisture_cleaned <-
         	dplyr::select(- height_cm) %>%
         	arrange(nfixer)
 
+data_soil_moisture_cleaned$treatment <-
+	factor(data_soil_moisture_cleaned$treatment,
+		   labels = c("Ambient Rain",
+		"Ambient Rain plus Nutrients",
+		"Ambient Rain plus Water",
+		"Ambient Rain plus Nutrients and Water"))
+
+data_soil_moisture_cleaned$date_day_month <-
+	factor(data_soil_moisture_cleaned$date_day_month,
+		   labels = c("31-August",
+		   			"19-September",
+					"4-October",
+					"17-October",
+					"31-October",
+					"15-November"))
+data_soil_moisture_cleaned$sm_measured <-
+	factor(data_soil_moisture_cleaned$sm_measured,
+		   labels = c(
+					"Before applying the treatments",
+					"After applying the treatments"
+					))
 
 # Order factors ---------------------------------------------------------------
 str(data_soil_moisture_cleaned)
