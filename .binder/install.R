@@ -22,5 +22,6 @@ install.packages("report")
 install.packages("MuMIn")
 install.packages("modelr")
 install.packages('IRkernel')
+install.packages('knitr')
 
 
