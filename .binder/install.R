@@ -23,5 +23,8 @@ install.packages("MuMIn")
 install.packages("modelr")
 install.packages('IRkernel')
 install.packages('knitr')
-
+install.packages('factoextra')
+install.packages("ggeffects")
+install.packages("ggpubrs")
+install.packages("vegan")
 
