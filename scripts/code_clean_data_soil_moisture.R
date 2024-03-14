@@ -14,14 +14,14 @@ data_soil_moisture <-
     data_soil_moisture %>%
 
         # Recode treatment levels
-    	mutate(treatment = recode(treatment,
+    	mutate(treatment = dplyr::recode(treatment,
     		   `ambient rain` =	                "ambientrain",
     		   `ambient rain + nutrients`=        "ambientrain_nutrients",
     		   `ambient rain + water` =           "ambientrain_water",
     		   `ambient rain + water + nutrients` = "ambientrain_water_nutrients"),
 
     		   # Recode wrong specie code
-    		   sppcode = recode(sppcode,`dt`= "dr"))
+    		   sppcode = dplyr::recode(sppcode,`dt`= "dr"))
 
 
 # Clean data ------------------------------------------------------------------
@@ -64,7 +64,7 @@ data_soil_moisture_cleaned <-
         				 names_to = "sm_measured", values_to = "soil_moisture") %>%
 
         	# Recode new levels
-        	mutate(sm_measured = recode(sm_measured,
+        	mutate(sm_measured = dplyr::recode(sm_measured,
         	                            `sm_before_watering` = "before_watering",
         	                            `sm_after_watering`  = "after_watering"),
         	       # Order levels
