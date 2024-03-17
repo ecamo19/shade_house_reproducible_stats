@@ -2,6 +2,7 @@
 
 # This script join all trait and biomass data for posterior analysis
 
+
 # Packages --------------------------------------------------------------------
 library(dplyr)
 library(janitor)
@@ -10,7 +11,7 @@ library(tibble)
 
 # Load data -------------------------------------------------------------------
 
-## RGR and AGR data cleaned ---------------------------------------------------
+## RGR data cleaned -----------------------------------------------------------
 source("./scripts/code_clean_and_calculate_growth_measurements.R")
 
 
@@ -40,7 +41,7 @@ raw_data_initheight <-
     read.csv("./raw_data/data_heights.csv", header = TRUE) %>%
     clean_names()
 
-## RGR and AGR ----------------------------------------------------------------
+## RGR  -----------------------------------------------------------------------
 # No raw data file loaded here because this data set was cleaned in the file
 # called code_clean_and_calculate_growth_measurements.R
 
@@ -150,8 +151,8 @@ data_complete <-
         # Add plant initial height
         inner_join(data_initheight_cleaned, by = c("id", "spcode", "treatment")) %>%
 
-        # Add plant RGR and AGR
-        inner_join(data_rgr_agr_cleaned, by = c("id", "spcode", "treatment")) %>%
+        # Add plant RGR
+        inner_join(data_rgr_cleaned, by = c("id", "spcode", "treatment")) %>%
 
         clean_names()
 
@@ -208,7 +209,7 @@ data_for_models <-
     dplyr::select(id, spcode, treatment, nfixer, init_height,
 
                   # Plant preformance
-                  total_biomass,agr, rgr, rgr_slope, root_shoot_ratio,
+                  total_biomass, rgr, root_shoot_ratio,
 
                   # Mass fractions
                   rmf, smf, lmf,
@@ -224,7 +225,7 @@ data_for_models <-
 # Remove all unused data ------------------------------------------------------
 items <- c("data_biomass_cleaned", "data_ecophys_cleaned", "data_complete",
             "data_initheight_cleaned", "data_isotopes_cleaned",
-            "data_leaf_traits_cleaned", "data_rgr_agr_cleaned",
+            "data_leaf_traits_cleaned", "data_rgr_cleaned",
             "raw_data_biomass", "raw_data_ecophys", "raw_data_initheight",
            "raw_data_isotopes", "raw_data_traits")
 
