@@ -17,7 +17,7 @@ source("./scripts/code_clean_and_calculate_growth_measurements.R")
 
 ## Biomass data ---------------------------------------------------------------
 raw_data_biomass <-
-    read.csv("./raw_data/6_plant_dry_weights_data.csv", header = TRUE) %>%
+    read.csv("./raw_data/5_plant_dry_weights_data.csv", header = TRUE) %>%
 	clean_names()
 
 ## Ecophys data ---------------------------------------------------------------
@@ -33,12 +33,12 @@ raw_data_traits <-
 
 ## Isotopes data --------------------------------------------------------------
 raw_data_isotopes <-
-    read.csv("./raw_data/4_isotopes_data.csv", header = TRUE) %>%
+    read.csv("./raw_data/4_nitrogen_data.csv", header = TRUE) %>%
     clean_names()
 
 ## Initial height data --------------------------------------------------------
 raw_data_initheight <-
-    read.csv("./raw_data/data_heights.csv", header = TRUE) %>%
+    read.csv("./raw_data/6_plant_heights_data.csv", header = TRUE) %>%
     clean_names()
 
 ## RGR  -----------------------------------------------------------------------
@@ -215,7 +215,7 @@ data_for_models <-
                   rmf, smf, lmf,
 
                   # Traits
-                  amax, gs, wue, d13c, pnue, Narea_g_m2, sla) %>%
+                  amax, gs, wue, pnue, Narea_g_m2, sla) %>%
 
     # add id to rownames for keep track of the rows
     column_to_rownames("id") %>%
