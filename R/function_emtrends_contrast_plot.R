@@ -3,6 +3,10 @@
 
 get_emtreds_contrast_df <- function(model, trait){
 
+                        # get the response variable name from the model
+                        terms <- terms(model)
+                        response_var <- as.character(attr(terms, "variables"))[2]
+
                         # Get contrast
                         emmeans::emtrends(model,
                                 pairwise ~ treatment,
@@ -17,6 +21,8 @@ get_emtreds_contrast_df <- function(model, trait){
                                 # Add new column with the trait
                                 tibble::add_column(trait = trait) %>%
 
+                                # Add new column with the response var
+                                tibble::add_column(response_var = response_var) %>%
 
                                 # Replace characters
                                 dplyr::mutate(contrast = base::gsub('-', 'vs.',
@@ -43,6 +49,8 @@ plot_emtrents_contrast <- function(model, trait) {
     # Map dataframe in case several traits are given
     purrr::map_dfr(trait, ~get_emtreds_contrast_df(trait = .x,
                                                     model = model)) %>%
+
+    mutate(response_var = factor(response_var)) %>%
 
     # Cleveland plot
     ggplot2::ggplot(data = ., aes(x = contrast, y = estimate,
@@ -85,7 +93,10 @@ plot_emtrents_contrast <- function(model, trait) {
                                                         fill = NA,
                                                         size = 1.3)) +
 
-    # Choose shapes
+    # Add the response variable as title
+    ggplot2::facet_wrap(~response_var, scales = "free_x", ncol = 2) +
+
+    # Select the shapes for each trait
     ggplot2::scale_shape_manual(values = c(15, 16, 17, 18))
 
 }
