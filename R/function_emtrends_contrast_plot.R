@@ -44,18 +44,31 @@ get_emtreds_contrast_df <- function(model, trait){
 
 # Create plot -----------------------------------------------------------------
 
-plot_emtrents_contrast <- function(model, trait) {
+plot_emtrents_contrast <- function(model, trait, filter_treatments = TRUE) {
 
     # Map dataframe in case several traits are given
-    purrr::map_dfr(trait, ~get_emtreds_contrast_df(trait = .x,
-                                                    model = model)) %>%
+    data_emtrents_contrast <- purrr::map_dfr(trait,
+                                            ~get_emtreds_contrast_df(trait = .x,
+                                            model = model)) %>%
+                        dplyr::mutate(response_var = factor(response_var))
 
-    mutate(response_var = factor(response_var)) %>%
+    # Create a cleaner dataset for the plot
+    if(filter_treatments == TRUE){
+        data_emtrents_contrast <-
+                        data_emtrents_contrast %>%
+
+                            # Get the contrasts that contain no_additions
+                            filter(stringr::str_detect(contrast,
+                                                        "no additions"))
+    }else{
+       data_emtrents_contrast
+    }
 
     # Cleveland plot
-    ggplot2::ggplot(data = ., aes(x = contrast, y = estimate,
-                                    color = significant,
-                                    shape = trait)) +
+    ggplot2::ggplot(data = data_emtrents_contrast, aes(x = contrast,
+                                                        y = estimate,
+                                                        color = significant,
+                                                        shape = trait)) +
 
     # Highlight significant terms
     ggplot2::scale_color_manual(values = c("grey", "black")) +
