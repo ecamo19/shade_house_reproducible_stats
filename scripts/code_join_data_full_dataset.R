@@ -219,7 +219,8 @@ data_for_models <-
 
     # add id to rownames for keep track of the rows
     column_to_rownames("id") %>%
-    mutate(nfixer = factor(nfixer, levels = c("nonfixer", "fixer")))
+    mutate(nfixer = factor(nfixer, levels = c("nonfixer", "fixer"))) %>%
+    clean_names()
 
 
 # Remove all unused data ------------------------------------------------------
