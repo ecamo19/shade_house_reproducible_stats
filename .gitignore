@@ -6,7 +6,7 @@
 .RData
 .RDataTmp
 *.Rmd
-*.html
+
 
 # User-specific files
 .Ruserdata
