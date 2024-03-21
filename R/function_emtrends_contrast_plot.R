@@ -110,6 +110,6 @@ plot_emtrents_contrast <- function(model, trait, filter_treatments = TRUE) {
     ggplot2::facet_wrap(~response_var, scales = "free_x", ncol = 2) +
 
     # Select the shapes for each trait
-    ggplot2::scale_shape_manual(values = c(15, 16, 17, 18))
+    ggplot2::scale_shape_manual(values = c(15, 16, 17, 18,19))
 
 }
